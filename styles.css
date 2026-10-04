@@ -11,12 +11,12 @@ body {
   background: linear-gradient(to bottom right, #000000, #000000, #000000);
   color: #ff2222;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
   padding: 1rem;
-  margin-top: 50px;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
 }
@@ -156,6 +156,7 @@ body {
 .envelope-back {
   transform: rotateY(180deg);
 }
+
 /* pliegues */
 .envelope-back::after {
   content: "";
@@ -227,49 +228,32 @@ body {
   font-weight: bold; 
 }
 
-.letter-button {
-  display: none; /* oculto hasta que la carta se abra */
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #ff8c00, #ffd700);
-  color: #000;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-  transition: transform 0.2s ease;
-}
-
-.letter-button:hover {
-  transform: scale(1.1);
-}
-
-
 .button-container {
   margin-top: 20px;
   text-align: center;
 }
 
-.letter-button {
-  display: none; /* oculto hasta que la carta se abra */
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #ff8c00, #ffd700);
-  color: #000;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-  transition: transform 0.2s ease, opacity 0.5s ease;
-  opacity: 0; /* para animación */
-}
-
+/* 🌼 Botón ajustado para Celular / Móvil */
 .letter-button {
   display: none;
   opacity: 0;
+  margin-top: 45px; /* Espacio extra para que no choque con la carta abierta */
+  padding: 14px 28px; /* Área táctil más amplia */
+  font-size: 18px; /* Texto más grande y legible */
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #ff8c00, #ffd700);
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8);
+  transition: transform 0.2s ease, opacity 0.5s ease;
+  z-index: 10;
+  position: relative;
+}
+
+.letter-button:hover {
+  transform: scale(1.05);
 }
 
 .envelope.open ~ .letter-button {
@@ -277,8 +261,15 @@ body {
   opacity: 1;
 }
 
+@media (min-width: 720px) {
+  .letter-button {
+    margin-top: 60px;
+    padding: 16px 32px;
+    font-size: 20px;
+  }
+}
 
-/*corazones lluvia*/
+/* corazones lluvia */
 .heart {
   position: fixed;
   top: -20px;
@@ -295,3 +286,4 @@ body {
     opacity: 0;
   }
 }
+```[cite: 4]
